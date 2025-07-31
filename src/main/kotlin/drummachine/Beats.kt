@@ -1,5 +1,6 @@
-package dev.drummachine
+package dev.drummachine.drummachine
 
+import kotlinx.coroutines.runBlocking
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.FileNotFoundException
@@ -46,7 +47,7 @@ fun main() {
     try {
         try {
             logger.info("Playing the audio files")
-            playBeats("x-x-x-x-x-x-", "test.aiff")
+            runBlocking { playBeats("x-x-x-x-x-x-", "test.aiff") }
             // playBeats("x-----x-----", "another-test_file.wav") // this will return no such fie or directory
         } catch (e: UnsupportedAudioFileException) {
             logger.warn(e.message)
